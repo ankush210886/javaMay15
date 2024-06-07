@@ -40,9 +40,6 @@ public class CalculatorMethods {
 
         double result = a / b;
         System.out.println("Division of "+a+" & "+b+" is "+result);
-
-        return;
-
     }
 
     void multiply (){
@@ -55,9 +52,6 @@ public class CalculatorMethods {
 
         double result = a * b;
         System.out.println("Multiplication of "+a+" & "+b+" is "+result);
-
-        return;
-
     }
 
 
@@ -71,9 +65,6 @@ public class CalculatorMethods {
 
         float result = a % b;
         System.out.println("Remainder of "+a+" & "+b+" is "+result);
-
-        return;
-
     }
 
 }

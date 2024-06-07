@@ -8,6 +8,12 @@ public class Calculator {
         System.out.println("Welcome to my calculator");
         System.out.println("************************");
 
+        System.out.println("Enter 2 numbers");
+        Scanner scan = new Scanner(System.in);
+
+        int num1 = scan.nextInt();
+        int num2 = scan.nextInt();
+
         System.out.println("1. Press 1 for Addition");
         System.out.println("2. Press 2 for Subtraction");
         System.out.println("3. Press 3 for Division");
@@ -15,53 +21,37 @@ public class Calculator {
         System.out.println("5. Press 5 for Remainder");
         System.out.println("6. Press 5 to Exit");
 
-        Scanner sc = new Scanner(System.in);
-        int input = sc.nextInt();
+        int input = scan.nextInt();
 
         switch (input) {
 
             case 1:
-                System.out.println("Enter 2 numbers");
-                double x,y,sum;
-                x=sc.nextInt();
-                y=sc.nextInt();
-                sum=x+y;
-                System.out.println("Sum of "+x+" & "+y+" is "+sum);
+                double sum;
+                sum=num1+num2;
+                System.out.println("Sum of "+num1+" & "+num2+" is "+sum);
                 break;
 
             case 2:
-                System.out.println("Enter 2 numbers");
-                x=sc.nextInt();
-                y=sc.nextInt();
-                double diff=x-y;
-                System.out.println("Difference of "+x+" & "+y+" is "+diff);
+                double diff = num1 - num2;
+                System.out.println("Difference of "+num1+" & "+num2+" is "+diff);
                 break;
 
             case 3:
-                System.out.println("Enter 2 numbers");
                 double div;
-                x=sc.nextInt();
-                y=sc.nextInt();
-                div=x/y;
-                System.out.println("Divison of "+x+" & "+y+" is "+div);
+                div=num1/num2;
+                System.out.println("Divison of "+num1+" & "+num2+" is "+div);
                 break;
 
             case 4:
-                System.out.println("Enter 2 numbers");
                 double mul;
-                x=sc.nextInt();
-                y=sc.nextInt();
-                mul=x*y;
-                System.out.println("Multiplication of "+x+" & "+y+" is "+mul);
+                mul = num1 * num2;
+                System.out.println("Multiplication of "+num1+" & "+num2+" is "+mul);
                 break;
 
             case 5:
-                System.out.println("Enter 2 numbers");
                 double rem;
-                x=sc.nextInt();
-                y=sc.nextInt();
-                rem=x%y;
-                System.out.println("Remainder of "+x+" & "+y+" is "+rem);
+                rem = num1 % num2;
+                System.out.println("Remainder of "+num1+" & "+num2+" is "+rem);
                 break;
 
             default:
