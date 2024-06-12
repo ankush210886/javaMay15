@@ -1,6 +1,6 @@
 //check if the number is positive or negative
 
-package Assignment;
+package ifElseAssignmentMay31st;
 
 import java.util.Scanner;
 

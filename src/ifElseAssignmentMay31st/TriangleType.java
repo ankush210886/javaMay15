@@ -1,4 +1,4 @@
-package Assignment;
+package ifElseAssignmentMay31st;
 
 import java.util.Scanner;
 
