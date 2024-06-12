@@ -12,8 +12,8 @@ public class Book {
 
         this.title = title; // initialize
         this.author = author;
-        this.price = price;
-        this.qty = qty;
+        Book.price = price;
+        Book.qty = qty;
     }
 
     public static void userInput(){
@@ -25,15 +25,15 @@ public class Book {
         String author = scan.nextLine();
 
         System.out.println("Enter the price");
-        double price = scan.nextDouble();
+        price = scan.nextDouble();
 
         System.out.println("Enter the quantity");
-        int qty = scan.nextInt();
+        qty = scan.nextInt();
 
     }
 
     public static void totalCost(){
-        System.out.println(this.qty * this.price);
+        System.out.println(qty * price);
 
     }
 
