@@ -26,7 +26,7 @@ public class ProductManager {
        productList.add(product);
     }
 
-/*    void removeProduct(String id) throws ProductNotFoundException{
+    void removeProduct(String id) throws ProductNotFoundException{
         if (productList.isEmpty()) {
             System.out.println("The product list is empty! There is nothing to remove.");
         }else {
@@ -40,29 +40,7 @@ public class ProductManager {
             }
         }
     }
-*/
-    public void removeProduct(String id) throws ProductNotFoundException {
-        if (productList.isEmpty()) {
-            System.out.println("The product list is empty! There is nothing to remove.");
-        } else {
-            boolean found = false;
-            Iterator<Product> iterator = productList.iterator();
-            while (iterator.hasNext()) {
-                Product productToRemove = iterator.next();
-                if (productToRemove.getId().equalsIgnoreCase(id)) {
-                    iterator.remove();
-                    System.out.println("Following product has been removed from the products list: " + productToRemove);
-                    System.out.println("\nNew products list is:");
-                    showProducts();
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                throw new ProductNotFoundException("Product with id " + id + " not found.");
-            }
-        }
-    }
+
 
     void update(){}
 
