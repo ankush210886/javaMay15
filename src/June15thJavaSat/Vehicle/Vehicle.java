@@ -1,4 +1,4 @@
-package SatJune15thJava.Vehicle;
+package June15thJavaSat.Vehicle;
 
 public class Vehicle {
     String make;

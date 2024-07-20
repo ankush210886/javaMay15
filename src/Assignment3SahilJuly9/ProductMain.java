@@ -9,10 +9,10 @@ public class ProductMain {
 
         boolean exit = false;
         Scanner scan = new Scanner(System.in);
+        System.out.println("\nWelcome to the Inventory Management System");
 
         while(!exit) {
-
-            System.out.println("\nWelcome to the Inventory Management System");
+            System.out.println("Choose from the below options");
             System.out.println("1. Add products: ");
             System.out.println("2. Remove products: ");
             System.out.println("3. Update products: ");
@@ -48,14 +48,28 @@ public class ProductMain {
                     productManager.showProducts();
                     System.out.println("\nEnter the Product ID you want to remove: ");
                     String id = scan.nextLine();
-                    productManager.removeProduct(id);
+                   // productManager.removeProduct(id);
                     break;
                 case 3:
+                    System.out.println("Enter new product ID: ");
+                    String updatedId = scan.nextLine();
+                    System.out.println("Enter new product name: ");
+                    String updatedName = scan.nextLine();
+                    System.out.println("Enter new product price: ");
+                    double updatedPrice = scan.nextDouble();
+                    System.out.println("Enter new product quantity: ");
+                    int updatedQuantity = scan.nextInt();
+
+                    productManager.updateProduct(updatedId, updatedName, updatedPrice, updatedQuantity);
+
                     break;
                 case 4:
                     productManager.showProducts();
                     break;
                 case 5:
+                    System.out.println("Enter the product ID");
+                    id = scan.nextLine();
+                    productManager.findProductById(id);
                     break;
                 case 6:
                     System.out.println("Exiting...!!!");

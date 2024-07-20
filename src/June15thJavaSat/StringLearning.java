@@ -1,4 +1,4 @@
-package SatJune15thJava;
+package June15thJavaSat;
 
 public class StringLearning {
     public static void main(String[] args) {
