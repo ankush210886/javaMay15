@@ -1,5 +1,6 @@
 package Assignment3SahilJuly9;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ProductMain {
@@ -11,74 +12,60 @@ public class ProductMain {
         Scanner scan = new Scanner(System.in);
         System.out.println("\nWelcome to the Inventory Management System");
 
-        while(!exit) {
+        while (!exit) {
             System.out.println("Choose from the below options");
             System.out.println("1. Add products: ");
             System.out.println("2. Remove products: ");
             System.out.println("3. Update products: ");
             System.out.println("4. Show all products: ");
             System.out.println("5. Find product by 'ID': ");
-            System.out.println("6. Exit the system: ");
-
-            int input = scan.nextInt();
-            scan.nextLine();
-
-            switch (input) {
-                case 1:
-                    String cont = "y";
-                    while (cont.equalsIgnoreCase("Y")) {
-                        System.out.println("Enter the product ID:");
-                        String id = scan.nextLine();
-                        System.out.println("Enter the product name:");
-                        String name = scan.nextLine();
-                        System.out.println("Enter the product price:");
-                        double price = scan.nextDouble();
-                        System.out.println("Enter the product quantity:");
-                        int quantity = scan.nextInt();
-                        scan.nextLine();
-                        productManager.addProduct(new Product(id, name, price, quantity));
-                        System.out.println("Product added.");
-
-                        System.out.println("\nEnter 'Y' if you want to add more products or press any key to continue:");
-                        cont = scan.nextLine();
+            System.out.println("6. View last 5 products: ");
+            System.out.println("7. Exit the system: ");
+            try {
+                   int input = scan.nextInt();
+                    scan.nextLine();
+                    switch (input) {
+                        case 1:
+                            productManager.addProduct();
+                            break;
+                        case 2:
+                            if (productManager.checkArray()){
+                                System.out.println("No products to display.\n");
+                                break;
+                            }
+                            productManager.showProducts();
+                            System.out.println("\nEnter the Product ID you want to remove: ");
+                            String id = scan.nextLine();
+                            productManager.removeProduct(id);
+                            break;
+                        case 3:
+                            productManager.showProducts();
+                            System.out.println("Enter the product ID for the product you wish to update:");
+                            String findId = scan.nextLine();
+                            productManager.updateProduct(findId);
+                            break;
+                        case 4:
+                            productManager.showProducts();
+                            break;
+                        case 5:
+                            System.out.println("Enter the product ID");
+                            id = scan.nextLine();
+                            productManager.findProductById(id);
+                            break;
+                        case 6:
+                            productManager.recentlyViewedProducts();
+                            break;
+                        case 7:
+                            System.out.println("Exiting...!!!");
+                            exit = true;
+                            return;
+                        default:
+                            System.out.println("Invalid input.");
                     }
-                    break;
-                case 2:
-                    System.out.println("\nTotal Products in the list are: ");
-                    productManager.showProducts();
-                    System.out.println("\nEnter the Product ID you want to remove: ");
-                    String id = scan.nextLine();
-                   // productManager.removeProduct(id);
-                    break;
-                case 3:
-                    System.out.println("Enter new product ID: ");
-                    String updatedId = scan.nextLine();
-                    System.out.println("Enter new product name: ");
-                    String updatedName = scan.nextLine();
-                    System.out.println("Enter new product price: ");
-                    double updatedPrice = scan.nextDouble();
-                    System.out.println("Enter new product quantity: ");
-                    int updatedQuantity = scan.nextInt();
-
-                    productManager.updateProduct(updatedId, updatedName, updatedPrice, updatedQuantity);
-
-                    break;
-                case 4:
-                    productManager.showProducts();
-                    break;
-                case 5:
-                    System.out.println("Enter the product ID");
-                    id = scan.nextLine();
-                    productManager.findProductById(id);
-                    break;
-                case 6:
-                    System.out.println("Exiting...!!!");
-                    exit = true;
-                    return;
-                default:
-                    System.out.println("Invalid input.");
+            }   catch(InputMismatchException e){
+                    System.out.println("Enter input from 1 to 7");
+                    scan.nextLine();
             }
-
         }
     }
 }
