@@ -8,18 +8,18 @@ public class ProductManager {
     private LinkedList<Product> recentlyViewedProducts = new LinkedList<>();
     Scanner scan = new Scanner(System.in);
 
-    public boolean checkArray(){
+    public boolean checkArrayIfEmpty(){
        return productList.isEmpty();
     }
 
 
     //Method to List all products
     void showProducts() {
-        if (!productList.isEmpty()) {
+        if (!checkArrayIfEmpty()) {
             System.out.println("\nTotal Products in the list are: ");
             System.out.println(productList+"\n");
-        }else {
-            System.out.println("No products to display.\n");
+        } else {
+            System.out.println("There are no products to display. Show product function\n");
         }
     }
 
@@ -72,6 +72,7 @@ public class ProductManager {
 
     //Method to remove a prduct from the ArrayList
     public void removeProduct(String idToRemove){
+        boolean productFound = false;
         try {
             Iterator<Product> iterator = productList.iterator();
             while (iterator.hasNext()) {
@@ -79,10 +80,14 @@ public class ProductManager {
                 if (productToRemove.getId().equalsIgnoreCase(idToRemove)){
                     iterator.remove();
                     System.out.println("Following product has been removed from the product list: "+productToRemove);
-                    showProducts();
-                }else{
-                    throw new ProductNotFoundException("Product ID not found.\n");
+                    productFound = true;
+                    if (!checkArrayIfEmpty()) {
+                        showProducts();
+                    }
                 }
+            }
+            if(!productFound){
+                throw new ProductNotFoundException("Incorrect Product ID.\n");
             }
         }catch (ProductNotFoundException e){
             System.out.println(e.getMessage());
@@ -174,8 +179,12 @@ public class ProductManager {
         }
 
     void recentlyViewedProducts(){
-        System.out.println("Last 5 viewed products are:");
-        System.out.println(recentlyViewedProducts+"\n");
+        if (!recentlyViewedProducts.isEmpty()){
+            System.out.println("Last 5 viewed products are:");
+            System.out.println(recentlyViewedProducts+"\n");
+        }else {
+            System.out.println("The list is empty.\n");
+        }
     }
 
 }

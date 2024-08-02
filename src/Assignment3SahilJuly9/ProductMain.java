@@ -29,14 +29,14 @@ public class ProductMain {
                             productManager.addProduct();
                             break;
                         case 2:
-                            if (productManager.checkArray()){
+                            if (productManager.checkArrayIfEmpty() == true){
                                 System.out.println("No products to display.\n");
                                 break;
                             }
                             productManager.showProducts();
                             System.out.println("\nEnter the Product ID you want to remove: ");
-                            String id = scan.nextLine();
-                            productManager.removeProduct(id);
+                            String idToRemove = scan.nextLine();
+                            productManager.removeProduct(idToRemove);
                             break;
                         case 3:
                             productManager.showProducts();
@@ -48,9 +48,10 @@ public class ProductMain {
                             productManager.showProducts();
                             break;
                         case 5:
+                            productManager.showProducts();
                             System.out.println("Enter the product ID");
-                            id = scan.nextLine();
-                            productManager.findProductById(id);
+                            String idToFind = scan.nextLine();
+                            productManager.findProductById(idToFind);
                             break;
                         case 6:
                             productManager.recentlyViewedProducts();
