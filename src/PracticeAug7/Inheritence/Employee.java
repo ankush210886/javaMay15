@@ -6,10 +6,17 @@ Create a subclass called HRManager that overrides the work() method and adds a n
 
 public class Employee {
 
-    public void work(){
-        System.out.println("work method in super class");
+    private int salary;
+
+    public Employee(int salary) {
+        this.salary = salary;
     }
-    public void getSalary(){
-        System.out.println("getSalary in super class");
+
+    public void work(){
+           System.out.println("work method in super class");
+    }
+
+    public int getSalary() {
+        return salary;
     }
 }

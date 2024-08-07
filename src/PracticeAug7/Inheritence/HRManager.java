@@ -2,6 +2,10 @@ package PracticeAug7.Inheritence;
 
 public class HRManager extends Employee{
 
+    public HRManager(int salary) {
+        super(salary);
+    }
+
     @Override
     public void work() {
         System.out.println("work method in sub class/child class.");
