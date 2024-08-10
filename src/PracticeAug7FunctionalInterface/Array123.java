@@ -1,4 +1,4 @@
-package PracticeAug7;
+package PracticeAug7FunctionalInterface;
 
 public class Array123 {
     public static void main(String[] args) {

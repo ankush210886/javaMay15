@@ -1,4 +1,4 @@
-package PracticeAug7.Calculator;
+package PracticeAug7FunctionalInterface.Calculator;
 
 import java.util.HashMap;
 import java.util.Map;

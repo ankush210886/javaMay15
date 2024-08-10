@@ -1,4 +1,4 @@
-package PracticeAug7;
+package PracticeAug7FunctionalInterface;
 
 /*
 Given 2 strings, a and b, return the number of the positions where

@@ -1,4 +1,4 @@
-package PracticeAug7.Inheritence;
+package PracticeAug7FunctionalInterface.Inheritence;
 
 public class HRManager extends Employee{
 
